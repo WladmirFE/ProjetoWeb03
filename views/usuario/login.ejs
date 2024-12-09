@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+    <%- include("../partials/cabecalhoVazio.ejs") %>
+</head>
+<body>
+
+    <% if (status=="1") { %>
+        <div style="color:white; background:rgb(255, 0, 0)">Senha ou usuario incorretos.</div>
+    <% } %>
+
+    <div class="container">
+        <form action="/usuarios/login" method="post">
+            
+
+            <div>
+                <label class="form-label">Email:</label>
+                <input class="form-control" type="email" name="email" required>
+            </div>
+    
+            <div>
+                <label class="form-label">Senha: </label>
+                <input class="form-control" type="password" name="senha" required>
+            </div>
+
+            <div>
+                <button class="btn btn-success" type="submit">Logar</button>
+            </div>
+            
+        </form>
+    </div>
+    
+
+    <%- include("../partials/rodape.ejs") %>
+</body>
+</html>

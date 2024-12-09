@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+    <%- include("../partials/cabecalhoVazio.ejs") %>
+</head>
+<body>
+
+
+
+
+    <div class="container">
+        <form action="/usuarios" method="post">
+            
+            <input type="hidden" name="_id" value="<%= usuario._id %>">
+
+
+            <div>
+                <label class="form-label">Nome: </label>
+                <input value="<%= usuario.nome %>" class="form-control" type="text" name="nome" required>
+            </div>
+
+            <div>
+                <label class="form-label">Email:</label>
+                <input value="<%= usuario.email %>" class="form-control" type="email" name="email" required>
+            </div>
+    
+            <div>
+                <label class="form-label">Senha: </label>
+                <input value="<%= usuario.senha %>" class="form-control" type="password" name="senha" required>
+            </div>
+
+            <div>
+                <a href="/" class="btn btn-danger">Voltar</a>
+                <button class="btn btn-success" type="submit">Salvar</button>
+            </div>
+            
+        </form>
+    </div>
+    
+
+    <%- include("../partials/rodape.ejs") %>
+</body>
+</html>

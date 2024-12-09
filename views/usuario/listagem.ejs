@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("../partials/cabecalho.ejs") %>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            width: 100%;;
+            border: 1px solid black;
+            text-align: center;
+
+        }
+
+        th, td{
+            border: 1px solid black;
+        }
+
+    </style>
+</head>
+<body>
+
+    <% if (newA=="1") { %>
+        <div style="color:white; background:green">Novo usuario cadastrado com sucesso</div>
+    <% }else if(newA=="2") { %>
+        <div style="color:white; background:rgb(255, 0, 0)">Usuario Excluido com sucesso</div>
+    <% }else if(newA=="3") { %>
+        <div style="color:white; background:rgb(229, 255, 0)">Usuario Atualizado com sucesso</div>
+    <% } %>
+
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Detalhes</th>
+            <th>Excluir</th>
+            <th>Editar</th>
+        </tr>
+
+        <%  usuarios.forEach(function(value){  %>
+            <tr>
+                <td>
+                    <%= value.nome %>
+                </td>
+                <td>
+                    <%= value.email %>
+                </td>
+
+                <td>
+                    
+                    <a href="/usuarios/<%= value.email %>">Detalhes do Usuario</a>
+                    
+                </td>
+                <td>
+                    
+                    <a href="/usuarios/remover/<%= value.email %>">Remover Usuario</a>
+                    
+                </td>
+                <td>
+                    
+                    <a href="/usuarios/cadastrar/<%= value.email %>">Editar Usuario</a>
+                    
+                </td>
+
+            </tr>
+        <%  }); %>
+
+    </table>
+    
+
+   
+    <%- include("../partials/rodape.ejs") %>
+</body>
+</html>
+

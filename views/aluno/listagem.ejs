@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("../partials/cabecalho.ejs") %>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            width: 100%;;
+            border: 1px solid black;
+            text-align: center;
+
+        }
+
+        th, td{
+            border: 1px solid black;
+        }
+
+    </style>
+</head>
+<body>
+
+    <% if (newA=="1") { %>
+        <div style="color:white; background:green">Novo aluno cadastrado com sucesso</div>
+    <% }else if(newA=="2") { %>
+        <div style="color:white; background:rgb(255, 0, 0)">Aluno Excluido com sucesso</div>
+    <% }else if(newA=="3") { %>
+        <div style="color:white; background:rgb(229, 255, 0)">Aluno Atualizado com sucesso</div>
+    <% } %>
+
+    <table>
+        <tr>
+            <th>Matricula</th>
+            <th>Nome</th>
+            <th>Curso</th>
+            <th>Detalhes</th>
+            <th>Excluir</th>
+            <th>Editar</th>
+        </tr>
+
+        <%  alunos.forEach(function(value){  %>
+            <tr>
+                <td>
+                    <%= value.matricula %>
+                </td>
+                <td>
+                    <%= value.nome %>
+                </td>
+                <td>
+                    <%= value.curso %>
+                </td>
+
+                <td>
+                    
+                    <a href="/alunos/<%= value.matricula %>">Detalhes do Aluno</a>
+                    
+                </td>
+                <td>
+                    
+                    <a href="/alunos/remover/<%= value.matricula %>">Remover Aluno</a>
+                    
+                </td>
+                <td>
+                    
+                    <a href="/alunos/cadastrar/<%= value.matricula %>">Editar Aluno</a>
+                    
+                </td>
+
+            </tr>
+        <%  }); %>
+
+    </table>
+    
+
+   
+    <%- include("../partials/rodape.ejs") %>
+</body>
+</html>
+
